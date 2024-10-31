@@ -96,7 +96,13 @@ size, you can use `hyprctl clients`.
 
 ### Static rules
 
-Static rules are evaluated once when the window is opened and never again.
+Static rules are evaluated once when the window is opened and never again. This essentially means that it is always the `initialTitle` and `initialClass` which will be found when matching on `title` and `class`, respectively.
+
+{{< callout type=warning >}}
+
+It is not possible to `float` (or any other of the static rules) a window based on a change in the `title` after the window has been created. This applies to all static rules listed here.
+
+{{< /callout >}}
 
 | Rule | Description |
 | ---- | ----------- |
@@ -133,7 +139,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | maxsize \[x\] \[y\] | sets the maximum size (x,y -> int) |
 | minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
 
-The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#setprop):
+The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 
 | Rule | Description |
 | ---- | ----------- |
@@ -164,10 +170,10 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 When using window rules, \[on\] can be set to `0` for off, `1` for on or not set
 for default.
 
-When using `hyprctl setprop`, \[on\] can be set to `0` for off, `1` for on,
+When using `setprop`, \[on\] can be set to `0` for off, `1` for on,
 `toggle` to toggle the state or `unset` to unset previous values.
 
-When using `hyprctl setprop`, \[int\] can also be `unset` to unset previous
+When using `setprop`, \[int\] can also be `unset` to unset previous
 values.
 
 ### `group` window rule options
